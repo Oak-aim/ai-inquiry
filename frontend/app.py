@@ -1,8 +1,14 @@
+import sys
+import os
 import streamlit as st
 import pandas as pd
 
-st.title("総務問い合わせ入力")
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+from backend.save import save_inquiry # 問い合わせを保存する関数
+from backend.gemini import ask_gemini # Gemini APIを呼び出す関数
+
+st.title("総務問い合わせ入力")
 st.write("社員から総務への問い合わせを入力してください。")
 
 # -------------------------
@@ -27,6 +33,13 @@ if submitted:
         st.error("問い合わせ内容を入力してください")
     else:
         st.success("登録が完了しました")
+
+        st.subheader("Gemini回答")
+
+        with st.spinner("AIが回答中..."):
+            answer = ask_gemini(question)
+
+        st.write(answer)
 
         st.subheader("入力内容")
         st.write("氏名:", name)
