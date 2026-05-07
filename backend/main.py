@@ -1,6 +1,5 @@
 import os
 import google.generativeai as genai
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -39,7 +38,6 @@ def analyze_inquiry(request: InquiryRequest):
         answer = response.text
     except Exception as e:
         answer = f"回答の取得に失敗しました: {str(e)}"
-
 
     item = save_inquiry(  
         name=request.name,        # ← ミニ課題2の return {...} からsave_inquiryを呼ぶように書き換える
