@@ -4,7 +4,6 @@ from datetime import datetime
 
 DATA_PATH = Path("data/inquiries.json")  # プロジェクトルートからの相対パス
 
-
 def load_inquiries():
     if not DATA_PATH.exists():
         return []
@@ -15,6 +14,7 @@ def load_inquiries():
 def save_inquiry(name, question, category, priority, answer):
     inquiries = load_inquiries()
     new_id = len(inquiries) + 1
+    
     item = {
         "id": new_id,
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

@@ -43,7 +43,7 @@ if page == "問い合わせ入力": # 問い合わせ入力ページ
                 time.sleep(2)  # 時間のかかる処理を模倣
                 try:
                     response = requests.post(
-                        "http://127.0.0.1:8001/analyze",
+                        "http://127.0.0.1:8000/analyze",
                         json={
                             "name": name,
                             "question": question,
@@ -99,7 +99,7 @@ if page == "問い合わせ入力": # 問い合わせ入力ページ
 
 elif page == "履歴一覧":   # 問い合わせ履歴ページ
     st.title("問い合わせ履歴")
-    resp = requests.get("http://127.0.0.1:8001/inquiries", timeout=10)
+    resp = requests.get("http://127.0.0.1:8000/inquiries", timeout=10)
     if resp.status_code == 200:
         inquiries = resp.json()
         df = pd.DataFrame(inquiries)
