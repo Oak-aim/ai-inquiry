@@ -24,7 +24,7 @@ if page == "問い合わせ入力": # 問い合わせ入力ページ
         category = st.selectbox("カテゴリ", ["休暇", "給与", "福利厚生", "その他"])
         priority = st.select_slider("緊急度", ["高", "中", "低"])
         # agree = st.checkbox("内容を確認しました")
-        submitted = st.form_submit_button("APIに送信")
+        submitted = st.form_submit_button("送信")
 
     if submitted:
         errors = [] # バリデーションエラーを格納するリスト
