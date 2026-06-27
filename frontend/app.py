@@ -17,7 +17,7 @@ if page == "問い合わせ入力": # 問い合わせ入力ページ
     st.title("問い合わせ入力欄")
     st.write("問い合わせを入力してください。")
 
-    with st.form("inquiry_form"):
+    with st.form("inquiry_form"): # フォームの開始
         # 1行テキスト
         name = st.text_input("氏名", placeholder="山田太郎")
         question = st.text_area("問い合わせ内容", height=100, placeholder="有給の申請方法を教えてください。")
@@ -54,7 +54,7 @@ if page == "問い合わせ入力": # 問い合わせ入力ページ
                     )
                     result = response.json()
 
-                    st.write("氏名:", result["name"])
+                    st.write("氏名:", result["name"]) 
                     st.write("カテゴリ:", result["category"])
                     st.write("緊急度:", result["priority"])
 
